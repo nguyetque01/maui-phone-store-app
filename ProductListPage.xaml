@@ -1,21 +1,29 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUIAssignment.ProductListPage"
              Title="ProductListPage">
-    <ListView x:Name="ProductListView" ItemsSource="{Binding Products}" ItemTapped="OnProductTapped">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" />
-                        <StackLayout VerticalOptions="Center">
-                            <Label Text="{Binding Title}" />
-                            <Label Text="{Binding Price}" />
+    <StackLayout>
+        <!-- Nút sắp xếp -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,0,0,12">
+            <Button Text="Sort Ascending" Clicked="SortAscending_Clicked" HeightRequest="40" />
+            <Button Text="Sort Descending" Clicked="SortDescending_Clicked" HeightRequest="40" />
+        </StackLayout>
+
+        <!-- ListView -->
+        <ListView x:Name="ProductListView" ItemsSource="{Binding Products}" ItemTapped="OnProductTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" />
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold" />
+                                <Label Text="{Binding Price, StringFormat='{0:N0} VNĐ'}" FontSize="14" />
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
