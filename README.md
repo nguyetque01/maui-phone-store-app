@@ -11,6 +11,7 @@ This is a MAUI (Multi-platform App UI) application that allows users to view a l
 This screen displays a list of products with their titles, prices, and sample images. Users can click on any product to view its details.
 
 ![Product List Screen](screenshots/product_list_price_sort_asc.png)
+![Product List Screen](screenshots/product_list_price_sort_desc.png)
 
 ### Product Detail Screen
 
